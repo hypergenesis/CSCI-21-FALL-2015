@@ -69,6 +69,7 @@ string Goldilocks(string item, int number) {
   {
      string output = "This " + item + " is just right";
   }
+  return output;
 }
 
 /*
@@ -120,6 +121,7 @@ int RockScissorPaper(char player_one, char player_two) {
           return 3;
       }
   }
+  return 0;
 }
 
 /*
@@ -130,7 +132,7 @@ int RockScissorPaper(char player_one, char player_two) {
 string ToLower(string input) {
   // CODE HERE
   string output;
-  for (int i = 0; i < input.size(); i++)
+  for (unsigned int i = 0; i < input.size(); i++)
   {
     output[i] = tolower(input[i]);
   }
@@ -145,7 +147,7 @@ string ToLower(string input) {
 string ToUpper(string input) {
   // CODE HERE
     string output;
-  for (int i = 0; i < input.size(); i++)
+  for (unsigned int i = 0; i < input.size(); i++)
   {
     output[i] = toupper(input[i]);
   }

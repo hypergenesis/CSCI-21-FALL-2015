@@ -27,10 +27,10 @@
 void MakeChange(int initial_value, int &quarters, int &dimes, int &nickels,
                 int &pennies) {
   // CODE HERE
-  quarters = initial_value/25;
-  dimes = (initial_value - 25 * quarters)/10;
-  nickels = ((initial_value - 25 * quarters) - 10 * dimes)/5;
-  pennies = (((initial_value - 25 * quarters) - 10 * dimes) - 5 * nickels)/5;
+  quarters = initial_value / 25;
+  dimes = (initial_value - 25 * quarters) / 10;
+  nickels = ((initial_value - 25 * quarters) - 10 * dimes) / 5;
+  pennies = (((initial_value - 25 * quarters) - 10 * dimes) - 5 * nickels);
   cout << quarters << endl << dimes << endl << nickels << pennies <<endl;
 }
 
@@ -49,7 +49,7 @@ double LaunchHumanCannonball(double initial_velocity, double launch_angle) {
   // (1) Convert launch_angle from degrees to radians
   //     [radian_angle = launch_angle * (kPI/180)]
   // CODE HERE
-double radian_angle = launch_angle/180;
+double radian_angle = launch_angle * (kPI/180);
 
   // (2) Compute final horizontal/x velocity
   //     [x_velocity = initial_velocity * cos(radian_angle)]
