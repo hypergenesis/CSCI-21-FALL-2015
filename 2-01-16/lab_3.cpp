@@ -33,41 +33,41 @@ string Goldilocks(string item, int number) {
   
   if (item == "porridge" && number == 1)
   {
-      string output = "This " + item + " is too hot";
+      output = "This " + item + " is too hot";
   }
   else if (item == "porridge" && number == 2)
   {
-     string output = "This " + item + " is too cold";
+     output = "This " + item + " is too cold";
   }
   else if (item == "porridge" && number == 3)
   {
-     string output = "This " + item + " is just right";
+     output = "This " + item + " is just right";
   }
   
   else if (item == "chair" && number == 1)
   {
-     string output = "This " + item + " is too big";
+     output = "This " + item + " is too big";
   }
   else if (item == "char" && number == 2)
   {
-     string output = "This " + item + " is too small";
+     output = "This " + item + " is too small";
   }
   else if (item == "chair" && number == 3)
   {
-     string output = "This " + item + " is just right";
+     output = "This " + item + " is just right";
   }
   
   else if (item == "bed" && number == 1)
   {
-     string output = "This " + item + " is too hard";
+     output = "This " + item + " is too hard";
   }
   else if (item == "bed" && number == 2)
   {
-     string output = "This " + item + " is too soft";
+     output = "This " + item + " is too soft";
   }
   else if (item == "bed" && number == 3)
   {
-     string output = "This " + item + " is just right";
+     output = "This " + item + " is just right";
   }
   return output;
 }
