@@ -1,4 +1,4 @@
-#include <item.h>
+#include "item.h"
 
 Item::Item(string name, unsigned int value)//contructor for base class
 {
@@ -16,7 +16,7 @@ void Item::set_name(string name)//set value
   name_ = name;
 }
   
-void Item::set_value(int value)//set value
+void Item::set_value(unsigned int value)//set value
 {
   value_ = value;
 }

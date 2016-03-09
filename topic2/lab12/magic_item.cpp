@@ -1,4 +1,4 @@
-#include <magic_item.h>
+#include "magic_item.h"
 
 MagicItem::MagicItem(string name, unsigned int value, string description, unsigned int mana_required)//constructor
 {

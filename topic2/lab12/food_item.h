@@ -7,25 +7,27 @@
 #ifndef FOOD_ITEM_H_
 #define FOOD_ITEM_H_
 
+#include "item.h"
+
 class FoodItem : public Item
 {
     public://constructor and destructor
-    FoodItem(string name_ = "fooditem", unsigned int value_ = 0, unsigned int calories_ = 0, string unit_of_measure = "nounits", double units_ = 0.0)
+    FoodItem(string name_ = "fooditem", unsigned int value_ = 0, unsigned int calories_ = 0, string unit_of_measure = "nounits", double units_ = 0.0);
     virtual ~FoodItem();
     
-    int GetCalories();//Getters and setters
-    void SetCalories(unsigned int calories_);
-    string GetUnitOfMeasure();
-    void SetUnitOfMeasure(string unit_of_measure);
-    double GetUnits();
-    void SetUnits(double units_);
+    unsigned int calories();//Getters and setters
+    void set_calories(unsigned int calories_);
+    string unit_of_measure();
+    void set_unit_of_measure(string unit_of_measure_);
+    double units();
+    void set_units(double units_);
     
     string ToString();//reutrn as string function
     
     private://subclass variables
     unsigned int calories_;
-    string unit_of_measure;
+    string unit_of_measure_;
     double units_;
-}
+};
 
 #endif
