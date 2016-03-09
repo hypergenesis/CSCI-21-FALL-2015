@@ -1,11 +1,12 @@
 /*
  * Name        : Temperature.h
- * Author      : FILL IN
+ * Author      : River Roseveare-Hunt
  * Description : Class Header File
  */
 
 // ADD HEADER GUARD HERE
-
+#ifndef LAB_H
+#define LAB_H
 
 #include <string>
 #include <sstream>
@@ -114,3 +115,4 @@ class Temperature {
 };
 
 // REST OF HEADER GUARD GOES HERE
+#endif
