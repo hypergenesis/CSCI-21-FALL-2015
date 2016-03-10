@@ -1,8 +1,7 @@
 /*
- * Name        : FILL IN
- * Author      : FILL IN
- * Description : FILL IN
- * Sources     : FILL IN
+ * Name        : River Roseveare-Hunt
+ * Author      : River Roseveare-Hunt
+ * Description : Semi-working
  */
 
 #ifndef ASSIGNMENT_1_H
