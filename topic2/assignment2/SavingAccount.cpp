@@ -1,7 +1,7 @@
 #include "SavingAccount.h"
 
 //Constructor
-SavingAccount::SavingAccount(per_interest)
+SavingAccount::SavingAccount(int per_interest)
 {
     per_interest_ = per_interest;
 }
@@ -23,5 +23,6 @@ void SavingAccount::SetPerInterest(int per_interest)
 //Others
 int SavingAccount::AddInterest()
 {
-    money_ = money_ * (per_interest_ / 100);
+    int money = GetMoney() * (1 + (per_interest_ / 100));
+    return money;
 }

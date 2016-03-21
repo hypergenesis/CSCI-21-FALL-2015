@@ -7,7 +7,7 @@ class SavingAccount : public BankAccount
 {
     public:
     //Constructor
-    SavingAccount(per_interest = 0);
+    SavingAccount(int per_interest = 0);
     //Destructor
     ~SavingAccount();
     //Getters

@@ -30,14 +30,13 @@ int main ()
     User_Saving.SetPIN(PIN);
     User_Credit.SetPIN(PIN);
     
-    cout << "What is your (universal) account number?"
+    cout << "What is your (universal) account number?" << endl;
     cin >> account_number;
     
     User_Checking.SetAccountNumber(account_number);
     User_Credit.SetAccountNumber(account_number);
     User_Saving.SetAccountNumber(account_number);
     
-    int money;
     cout << "How much money is in your checkings account?" << endl;
     cin >> money;
     
@@ -53,13 +52,10 @@ int main ()
     
     User_Saving.SetPerInterest(per_interest);
     
-    cout << "After adding interest you have " << User_Saving.AddInterest << endl;
+    cout << "After adding interest you have " << User_Saving.AddInterest() << endl;
     
     cout << "How much money is in your credit account?" << endl;
     cin >> money;
     
     User_Credit.SetMoney(money);
-    
-    
-    
 }
