@@ -20,7 +20,7 @@ class Item
     
     string name();//getters and setters
     void set_name(string name_);
-    unsint value();
+    unsigned int value();
     void set_value(unsigned int value_);
     
     string ToString();//converts to string an returns
