@@ -1,5 +1,6 @@
 /*
-Class file for SLNode
+River Roseveare-Hunt
+Header file for Node class
 */
 
 #ifndef LAB_H
