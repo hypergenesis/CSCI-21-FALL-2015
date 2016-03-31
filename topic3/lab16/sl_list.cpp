@@ -26,15 +26,22 @@ void SLList::InsertHead(int new_head)
 //removes the head node from the list, or does nothing if the list is empty
 void SLList::RemoveHead()
 {
-    //make new temp
-    //make temp point to old head
-    //make head point
-   
-    SLNode* temp = head_;
-    head_ -> next_node();
-    delete head_;
-    temp = NULL;
-   
+    if (!head_)
+    {
+        
+    }
+    else
+    {
+        //make new temp
+        //make temp point to old head
+        SLNode* temp = head_;
+        //make head point to next node
+        head_ = head_ -> next_node();
+        //delete temp
+        delete temp;
+        //set temp to null
+        temp = NULL;
+    }
 }
 
 //clears the entire contents of the list, freeing all memory associated with all nodes
@@ -46,12 +53,12 @@ void SLList::Clear()
 //accessor for size_
 unsigned int SLList::size() const
 {
-    
+    return size_;
 }
 
 //returns a string representation of the contents of all nodes in the list, in the format NUM1, NUM2, ..., LASTNUM returns the empty string on an empty list (i.e. returns "")
 
 string SLList::ToString() const
 {
-    
+    return "";
 }
