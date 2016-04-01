@@ -1,9 +1,8 @@
 #ifndef SL_LIST
 #define SL_LIST
 
-
 #include "sl_node.h"
-
+#include <sstream>
 #include <iostream>
 using namespace std;
 
