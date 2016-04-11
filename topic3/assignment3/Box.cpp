@@ -5,18 +5,22 @@ Box::Box()
 {
     boxNumber_ = 0;
     boxColor_ = "NO COLOR";
-    prizeCapacity_ = 5;
+    PrizeCapacity_ = 5;
     prizeCount_ = 0;
-    prizes_ = new Prize[prizeCapacity_];
+
+    Prize *prizes = new Prize[prizeCapacity_];
+    for(int i = 0; i < prizeCapacity_; i++)
+    {
+      prizes[i] = Prize();
+    }
 }
 
 Box::Box(unsigned int boxNumber, string boxColor, unsigned int prizeCapacity)
 {
-    boxNumber_ = boxNumber;
-    boxColor_ = boxColor;
-    prizeCapacity_ = prizeCapacity;
-    prizeCount_ = 0;
-    prizes_ = new Prize[prizeCapacity_];
+  boxNumber_ = boxNumber;
+  boxColor_ = boxColor;
+  prizeCapacity_ = prizeCapacity;
+  Prize *prizes = new Prize[prizeCapacity_];
 }
 
 Box::~Box()
