@@ -1,7 +1,7 @@
-#include "BankAccount.cpp"
-#include "CheckingAccount.cpp"
-#include "CreditCardAccount.cpp"
-#include "SavingAccount.cpp"
+#include "BankAccount.h"
+#include "CheckingAccount.h"
+#include "CreditCardAccount.h"
+#include "SavingAccount.h"
 
 
 int main ()

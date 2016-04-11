@@ -7,11 +7,7 @@ Box::Box()
     boxColor_ = "NO COLOR";
     prizeCapacity_ = 5;
     prizeCount_ = 0;
-    Prize* prize = new Prize[prizeCapacity_];
-    for (int i = 0; i < prizeCapacity_; i++)
-    {
-        prizes[i] = Prize();
-    }
+    prizes_ = new Prize[prizeCapacity_];
 }
 
 Box::Box(unsigned int boxNumber, string boxColor, unsigned int prizeCapacity)
@@ -19,22 +15,33 @@ Box::Box(unsigned int boxNumber, string boxColor, unsigned int prizeCapacity)
     boxNumber_ = boxNumber;
     boxColor_ = boxColor;
     prizeCapacity_ = prizeCapacity;
+    prizeCount_ = 0;
+    prizes_ = new Prize[prizeCapacity_];
 }
 
 Box::~Box()
 {
-    delete prizes;
+    delete prizes_;
 }
 
 //getters
 unsigned int Box::getBoxNumber()
 {
-    return BoxNumber_;
+    return boxNumber_;
 }
 
 string Box::getBoxColor()
 {
-    return BoxColor_;
+    return boxColor_;
+}
+
+unsigned int Box::getPrizeCapacity()
+{
+    return prizeCapacity_;
+}
+unsigned int Box::getPrizeCount()
+{
+    return prizeCount_;
 }
 
 //setters
@@ -49,31 +56,28 @@ void Box::setBoxColor(string boxColor)
 }
 
 //others
-bool Box::addPrize(Prize* prize)
+bool Box::addPrize(Prize prize)
 {
-    for (int i = 0; i < prizeCapacity_; i++)
+    if (prizeCount_ < prizeCapacity_)
     {
-        if(prizes[i] == Prize())
-        {
-            prizes[i] = prize;
-            return true;
-        }
-        else
-        {
-            return false
-        }
+        prizes_[prizeCount_++] = prize;
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 
-bool Box::getPrize(unsigned int index)
+Prize Box::getPrize(unsigned int index)
 {
     if (index < 0 || index > prizeCapacity_)
     {
         return scratch_;
     }
-    else if (!(prizes[index] == Prize()))
+    else if (!(prizes_[index] == Prize()))
     {
-        return prizes[index];
+        return prizes_[index];
     }
 }
 
@@ -83,10 +87,10 @@ Prize Box::removePrize(unsigned int index)
     {
         return scratch_;
     }
-    else if (!(prize[index] == Prize()))
+    else if (!(prizes_[index] == Prize()))
     {
-        Prize re_Prize = prizes[index];
-        prizes[index] = Prize();
+        Prize re_Prize = prizes_[index];
+        prizes_[index] = Prize();
         return re_Prize;
     }
 }

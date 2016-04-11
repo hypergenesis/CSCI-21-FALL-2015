@@ -34,8 +34,8 @@ class Box
     void setBoxNumber(unsigned int boxNumber);
     void setBoxColor(string boxColor);
     
-    bool addPrize(Prize prize);
-    bool getPrize(unsigned int index);
+    bool addPrize(Prize prizes);
+    Prize getPrize(unsigned int index);
     Prize removePrize(unsigned int index);
 };
 
