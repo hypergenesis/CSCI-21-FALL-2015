@@ -16,7 +16,7 @@
  */
 
 
-stringstream decToBin(int num)
+string decToBin(int num)
 {
     stringstream ss;
     ss.str();
@@ -24,26 +24,23 @@ stringstream decToBin(int num)
     if (num > 1)
     {
         ss << (num%2);
-        decToBin(num%2);
+        ss << decToBin(num/2);
     }
     
-    
     ss << (num%2);
-    return ss;
+    
+    string re_string = ss.str();
+    return re_string;
 }
 
 unsigned int binToDec(int num)
 {
-    
-    unsigned int base = 1;
-    unsigned int add = 0;
-    unsigned int dec = 0;
-    if (num > 0)
+    while (num > 0)
     {
-        add = num % 10;
-        dec = dec + (add * base);
-        base = base*2;
-        binToDec(num/10);
+        int base = 10;
+        int rem = num % 10;
+        num = num + (rem * base);
+        binToDec(num);
     }
     
     return num;
@@ -51,5 +48,7 @@ unsigned int binToDec(int num)
 
 int main()
 {
-    return 0;
+    cout << decToBin(256) << endl;
+    cout << binToDec(101);
+    
 }

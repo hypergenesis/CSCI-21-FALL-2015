@@ -18,7 +18,7 @@ unsigned int Factorial(unsigned int value)
         return (value * Factorial(value - 1));
     }
 }
-
+//Checks the fibb values
 unsigned int Fibonacci(unsigned int fib_value)
 {
     if (fib_value == 0)
