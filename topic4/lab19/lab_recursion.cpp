@@ -15,16 +15,7 @@
  * @return a stringstream.
  */
 
-stringstream decToBin(int num)
-{
-	if (num > 1) //note this makes the base case num = 0
-	{
-		decToBin(num/2); //recursive call
-	}
 
-	cout << (num%2); //outputs in correct order
-}
-/*
 stringstream decToBin(int num)
 {
     stringstream ss;
@@ -36,12 +27,14 @@ stringstream decToBin(int num)
         decToBin(num%2);
     }
     
+    
     ss << (num%2);
+    return ss;
 }
-*/
 
 unsigned int binToDec(int num)
 {
+    
     unsigned int base = 1;
     unsigned int add = 0;
     unsigned int dec = 0;
@@ -52,13 +45,11 @@ unsigned int binToDec(int num)
         base = base*2;
         binToDec(num/10);
     }
+    
     return num;
 }
 
 int main()
 {
-    cout << decToBin(345);
-    cout << binToDec(1011010110);
-    
     return 0;
 }
