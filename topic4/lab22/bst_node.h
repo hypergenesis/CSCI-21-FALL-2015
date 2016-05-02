@@ -1,7 +1,8 @@
 
-#ifndef LAB_H
-#define LAB_H
+#ifndef BSN_H
+#define BSN_H
 
+#include <sstream>
 #include <iostream>
 using namespace std;
 

@@ -1,28 +1,94 @@
 #include "bs_tree.h"
 
-    BSTree()//constructor
+BSTree::BSTree()//constructor
+{
+    root_ = NULL;
+    size_ = 0;
+}
+
+BSTree::~BSTree()//deconstructor
+{
+    //clears whole tree
+    Clear();
+}
+
+bool BSTree::Insert(int contents, BSTNode*& new_node)//creates a new BSTNode, inserts it into the tree, and returns true if the integer is already in the tree, does not insert, and returns false
+{
+    if (new_node == NULL)
     {
-        root_ = NULL;
-        size_ = 0;
+        //sets temp to new node;
+        BSTNode * temp = new BSTNode(contents);
+        //sets new_node to temp
+        new_node = temp;
+        //increases the size
+        size_++;
+        //returns true because successful
+        return true;
     }
-    ~BSTree()//deconstructor
+    else if (contents < (new_node -> contents()))
     {
-        Clear();
+        //calls function for left child
+        Insert(contents, new_node -> left_child());
     }
-    bool Insert(int contents)//calls private Insert
+    else if (contents > (new_node -> contents()))
     {
-        Insert(contents, root_);
+        //calls function for right child
+        Insert(contents, new_node -> right_child());
     }
-    void Clear()//calls private Clear
+    else
     {
-        Clear(root_)
+        //returns false if they are the same
+        return false;
     }
-    unsigned int size() const//accessor for size
+}
+
+void BSTree::Clear(BSTNode*& root)//clears the entire contents of the tree, freeing all memory associated with all nodes
+{
+    if (root != NULL)
     {
-        return size_;
+        Clear(root->left_child());
+        Clear(root->right_child());
+        delete root;
+        root = NULL;
+        size_--;
     }
-    string InOrder()//calls private InSize
-    {
-        InOrder(root_);
-    }
+}
+
+string BSTree::InOrder(BSTNode* root)//creates a string of the data in all nodes in the tree, in ascending order separate by spaces (there should be a space after the last output value)
+{
     
+    stringstream output;
+    if (root == NULL)
+    {
+        output << "";
+        return output.str();
+    }
+    else
+    {
+        output << InOrder(root->left_child());
+        output << root -> contents() << " ";
+        output << InOrder(root->right_child());
+        return output.str();
+    }
+    //return "dumb";
+}
+
+unsigned int BSTree::size() const//accessor for size
+{
+    return size_;
+}
+
+void BSTree::Clear()//calls clear on whole tree
+{
+    Clear(root_);
+}
+
+string BSTree::InOrder()//calls inorder on tree
+{
+    return InOrder(root_);
+}
+
+bool BSTree::Insert(int contents)
+{
+    return Insert(contents, root_);
+}
