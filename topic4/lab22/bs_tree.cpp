@@ -44,6 +44,7 @@ bool BSTree::Insert(int contents, BSTNode*& new_node)//creates a new BSTNode, in
 
 void BSTree::Clear(BSTNode*& root)//clears the entire contents of the tree, freeing all memory associated with all nodes
 {
+    //if the tree is not already cleared
     if (root != NULL)
     {
         Clear(root->left_child());
@@ -56,13 +57,15 @@ void BSTree::Clear(BSTNode*& root)//clears the entire contents of the tree, free
 
 string BSTree::InOrder(BSTNode* root)//creates a string of the data in all nodes in the tree, in ascending order separate by spaces (there should be a space after the last output value)
 {
-    
+    //creates ss to catch output
     stringstream output;
+    //if certain values apply
     if (root == NULL)
     {
         output << "";
         return output.str();
     }
+    //otherwise
     else
     {
         output << InOrder(root->left_child());
