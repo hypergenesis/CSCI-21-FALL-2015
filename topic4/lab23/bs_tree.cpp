@@ -95,3 +95,38 @@ bool BSTree::Insert(int contents)
 {
     return Insert(contents, root_);
 }
+
+bool Remove(int, BSTNode*& root)
+{
+    
+}
+
+int FindMin(BSTNode* root) const
+{
+    if (root_ != NULL)
+    {
+        FindMin(root_ -> left_child());
+    }
+    else
+    {
+        
+        return root->contents();
+    }
+}
+
+bool Remove(int contents)
+{
+    Remove(contents, BSTNode*& root);
+}
+
+int FindMin()
+{
+    if (root_ == NULL)
+    {
+        return 0;
+    }
+    else
+    {
+        return FindMin(BSTNode * root)
+    }
+}
