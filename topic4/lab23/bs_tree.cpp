@@ -96,30 +96,79 @@ bool BSTree::Insert(int contents)
     return Insert(contents, root_);
 }
 
-bool Remove(int, BSTNode*& root)
+int BSTree::FindMin(BSTNode* root) const
 {
-    
-}
-
-int FindMin(BSTNode* root) const
-{
-    if (root_ != NULL)
+    if (root == NULL)
     {
-        FindMin(root_ -> left_child());
+        return 0;
+    }
+    else if (root -> left_child() == NULL)
+    {
+        return root->contents();
     }
     else
     {
+        return FindMin(root->left_child());
+    }
+}
+bool BSTree::Remove(int contents, BSTNode*& root)
+{
+    if(root == NULL)
+    {
+        return false;
+    }
+    
+    else if(contents > (root -> contents()))
+    //because contents are greater it will go to the right
+    {
+        return Remove(contents, root -> right_child());
+    }
+    
+    else if(contents < (root -> contents()))
+    //because contents are smaller it will go to the left
+    {
+        return Remove(contents, root -> left_child());
+    }
+    
+    else if((root -> contents()) == contents)
+    {
+
+        root -> set_contents(FindMin(root -> right_child()));
+        //returns the next smallest number, greater than the number we are deleting, in the tree
         
-        return root->contents();
+        int min = FindMin(root -> right_child());
+        
+        if((root -> contents()) == 0 && (root -> right_child()) == NULL)
+        {
+            BSTNode *temp = new BSTNode();
+            temp = root;
+            root = root -> left_child();
+            temp = NULL;
+            size_--;
+        }
+        
+        else if((root -> contents()) == 0)
+        {
+            root = NULL;
+            size_--;
+        }
+        
+        else if(min != 0)
+        {
+            Remove(min, root -> right_child());
+        }
+        
+        return true;
     }
 }
 
-bool Remove(int contents)
+
+bool BSTree::Remove(int contents)
 {
-    Remove(contents, BSTNode*& root);
+    return Remove(contents, root_);
 }
 
-int FindMin()
+int BSTree::FindMin()
 {
     if (root_ == NULL)
     {
@@ -127,6 +176,6 @@ int FindMin()
     }
     else
     {
-        return FindMin(BSTNode * root)
+        return FindMin(root_);
     }
 }
