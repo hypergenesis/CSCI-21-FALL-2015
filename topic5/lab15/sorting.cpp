@@ -7,7 +7,13 @@
 
 // CODE HERE -- FUNCTION DEFINITIONS
 
-
+void DisplayArray(int values[]) {
+  if (GRADER) {
+    for (unsigned int i = 0; i < 5; i++)
+      cout << values[i] << ' ';
+    cout << endl;
+  }
+}
 int BubbleSort(int the_array[], unsigned int size)
 {
 
@@ -95,24 +101,46 @@ int InsertionSort(int the_array[], unsigned int size)
 
 int ShellSort(int the_array[], unsigned int size)
 {
+    /*
+    for (int i = 0; i < size; i++)
+    {
+        cout << the_array[i] << ", ";
+    }
+    cout << endl;
+    */
+    
+    
     int passes = 0;
-    int distance = size;
+    int distance = size/2;
     while (distance > 0)
     {
+        passes++;
         int first_pos = 0;
         int second_pos = first_pos + distance;
-        while (second_pos < size)
+        for (int i = distance; i < size; i++)
         {
-            if (the_array[second_pos] < the_array[first_pos])
+            int temp = the_array[i];
+            int array_pos = i;
+            while (array_pos >= distance && the_array[array_pos - distance] > temp)
             {
-                SwapValues(the_array[second_pos], the_array[first_pos]);
+                the_array[array_pos] = the_array[array_pos - distance];
+                array_pos = array_pos - distance;
             }
-            second_pos++;
-            first_pos++;
+            the_array[array_pos] = temp;
+            DisplayArray(the_array);
         }
         distance = distance/2;
-        passes++;
     }
+    
+    /*
+        for (int i = 0; i < size; i++)
+    {
+        cout << the_array[i] << ", ";
+    }
+    cout << endl;
+    */
+    
+    
     return passes;
 }
 
